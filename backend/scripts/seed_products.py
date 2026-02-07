@@ -52,16 +52,20 @@ async def get_or_create_category(category_name):
     return res.data[0]["id"]
 
 async def seed_data():
-    # Truncate existing data
+    # Truncate existing data in correct order of dependency
     print("Clearing existing data...")
-    supabase.table("product_variants").delete().neq("id", 0).execute()
-    supabase.table("product_images").delete().neq("id", 0).execute()
-    supabase.table("products").delete().neq("id", 0).execute()
-    # Also truncate categories to start fresh with MUJI-style ones
-    supabase.table("categories").delete().neq("id", 0).execute()
+    try:
+        supabase.table("product_variants").delete().neq("id", 0).execute()
+        supabase.table("product_images").delete().neq("id", 0).execute()
+        supabase.table("products").delete().neq("id", 0).execute()
+        supabase.table("categories").delete().neq("id", 0).execute()
+    except Exception as e:
+        print(f"Truncation Note: {e}")
     
+    # Stick to DummyJSON for guaranteed high quality MUJI-style data
     dummy_products = await fetch_dummy_json_products()
-    platzi_products = await fetch_platzi_products()
+    # Skip Platzi as it contains too much community-vandalized/garbage data
+    # platzi_products = await fetch_platzi_products()
     
     combined = []
     
@@ -78,18 +82,7 @@ async def seed_data():
             "images": p["images"]
         })
         
-    # Normalize Platzi
-    for p in platzi_products:
-        # Platzi images are already in an array
-        main_image = p["images"][0] if p["images"] else ""
-        combined.append({
-            "name": p["title"],
-            "description": p["description"],
-            "price": p["price"],
-            "image_url": main_image,
-            "category_name": p["category"]["name"],
-            "images": p["images"]
-        })
+    # Platzi is skipped to ensure high quality data
         
     print(f"Total products to seed: {len(combined)}")
     

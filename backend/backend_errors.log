@@ -75,3 +75,27 @@
 2026-02-08 05:35:18,434 INFO:  * Debugger PIN: 343-099-677
 2026-02-08 05:36:39,254 INFO: 127.0.0.1 - - [08/Feb/2026 05:36:39] "GET /api/products HTTP/1.1" 200 -
 2026-02-08 05:36:39,429 INFO: 127.0.0.1 - - [08/Feb/2026 05:36:39] "GET /api/hero-banners HTTP/1.1" 200 -
+2026-02-08 05:36:44,724 INFO: 127.0.0.1 - - [08/Feb/2026 05:36:44] "GET /api/hero-banners HTTP/1.1" 200 -
+2026-02-08 05:36:44,730 INFO: 127.0.0.1 - - [08/Feb/2026 05:36:44] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:36:46,856 INFO: 127.0.0.1 - - [08/Feb/2026 05:36:46] "GET /api/hero-banners HTTP/1.1" 200 -
+2026-02-08 05:36:46,862 INFO: 127.0.0.1 - - [08/Feb/2026 05:36:46] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:37:41,122 INFO: 127.0.0.1 - - [08/Feb/2026 05:37:41] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:37:41,123 INFO: 127.0.0.1 - - [08/Feb/2026 05:37:41] "GET /api/categories HTTP/1.1" 200 -
+2026-02-08 05:39:22,670 INFO:  * Detected change in '/Users/wannasingh/Desktop/miji-store/backend/scripts/seed_products.py', reloading
+2026-02-08 05:39:22,774 INFO:  * Restarting with stat
+2026-02-08 05:39:23,243 WARNING:  * Debugger is active!
+2026-02-08 05:39:23,254 INFO:  * Debugger PIN: 343-099-677
+2026-02-08 05:39:42,531 INFO: 127.0.0.1 - - [08/Feb/2026 05:39:42] "GET /api/categories HTTP/1.1" 200 -
+2026-02-08 05:39:42,534 INFO: 127.0.0.1 - - [08/Feb/2026 05:39:42] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:40:31,780 INFO: 127.0.0.1 - - [08/Feb/2026 05:40:31] "GET /api/categories HTTP/1.1" 200 -
+2026-02-08 05:40:31,787 INFO: 127.0.0.1 - - [08/Feb/2026 05:40:31] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:40:33,094 INFO: 127.0.0.1 - - [08/Feb/2026 05:40:33] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:40:33,099 INFO: 127.0.0.1 - - [08/Feb/2026 05:40:33] "GET /api/hero-banners HTTP/1.1" 200 -
+2026-02-08 05:40:42,437 INFO:  * Detected change in '/Users/wannasingh/Desktop/miji-store/backend/scripts/seed_products.py', reloading
+2026-02-08 05:40:42,547 INFO:  * Restarting with stat
+2026-02-08 05:40:42,894 WARNING:  * Debugger is active!
+2026-02-08 05:40:42,903 INFO:  * Debugger PIN: 343-099-677
+2026-02-08 05:40:49,050 INFO: 127.0.0.1 - - [08/Feb/2026 05:40:49] "GET /api/categories HTTP/1.1" 200 -
+2026-02-08 05:40:49,051 INFO: 127.0.0.1 - - [08/Feb/2026 05:40:49] "GET /api/products HTTP/1.1" 200 -
+2026-02-08 05:41:11,225 INFO: 127.0.0.1 - - [08/Feb/2026 05:41:11] "GET /api/hero-banners HTTP/1.1" 200 -
+2026-02-08 05:41:11,227 INFO: 127.0.0.1 - - [08/Feb/2026 05:41:11] "GET /api/products HTTP/1.1" 200 -
