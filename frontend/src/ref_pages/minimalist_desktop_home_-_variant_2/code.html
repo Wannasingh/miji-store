@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minimalist Desktop Home - Variant 2</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white transition-colors duration-300">
+<!-- Sticky Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+<!-- Left: Links -->
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-xs uppercase tracking-widest font-medium hover:text-primary transition-colors" href="#">Shop</a>
+<a class="text-xs uppercase tracking-widest font-medium hover:text-primary transition-colors" href="#">Stories</a>
+<a class="text-xs uppercase tracking-widest font-medium hover:text-primary transition-colors" href="#">About</a>
+</nav>
+<!-- Center: Logo -->
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tighter uppercase">Minimal</h1>
+</div>
+<!-- Right: Utilities -->
+<div class="flex items-center gap-6">
+<button class="flex items-center justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="flex items-center justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</button>
+<button class="flex items-center justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute top-1 right-1 size-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section: Editorial Style -->
+<section class="relative h-[90vh] w-full flex items-center justify-center px-8 md:px-20 overflow-hidden bg-white dark:bg-background-dark">
+<div class="grid grid-cols-12 gap-8 w-full max-w-[1440px] items-center">
+<div class="col-span-12 md:col-span-5 z-10 space-y-8">
+<div class="space-y-4">
+<span class="text-primary text-xs font-semibold tracking-widest uppercase block">New Arrivals</span>
+<h2 class="text-6xl md:text-8xl font-black leading-none tracking-tight text-[#111318] dark:text-white">
+                            The Art of Living
+                        </h2>
+<p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-light max-w-sm">
+                            A curated selection of essentials designed for the modern minimalist.
+                        </p>
+</div>
+<div class="flex items-center gap-6">
+<button class="px-10 py-4 bg-primary text-white rounded-lg font-bold tracking-wide hover:opacity-90 transition-all">
+                            View Collection
+                        </button>
+<button class="px-10 py-4 border border-gray-200 dark:border-gray-700 rounded-lg font-bold tracking-wide hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+                            Read Stories
+                        </button>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 relative h-[600px] md:h-[750px]">
+<div class="absolute inset-0 bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Minimalist Clothing" class="w-full h-full object-cover" data-alt="Modern minimalist aesthetic clothing rack photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKp-7dWg5M35e72vRk903wjrXtJ6kNXnRxfKehMYiVhyORagWFBkEJF3JLGRk9iS4kFv3iDoVDBLlLjyTjoR-L-BN6TKGYE40tJ_WCqX240V_QSPPYwFnbklGRLKsVvJUaCGG_qqxanP_n6-ZIpob7IQq6EkdI722p6fDpDaCM2iqbwR9WF-n8PFfc3xiuKD9Hl6AjgDoy6TjSWQ8jRti3nCKLvAfaDKL6VybVyV4YAQH3iM1WcP0PrFje21ozqJPoDph0fHcxeATn"/>
+</div>
+<!-- Overlaid decorative element -->
+<div class="absolute -bottom-10 -left-10 bg-white dark:bg-background-dark p-8 rounded-xl shadow-xl hidden lg:block border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<p class="text-sm font-bold">100% Sustainable</p>
+<p class="text-xs text-gray-400">Crafted with care for Earth.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetrical Category Mosaic -->
+<section class="max-w-[1440px] mx-auto px-8 md:px-20 py-32 bg-white dark:bg-background-dark">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-md">
+<h3 class="text-3xl font-bold tracking-tight mb-4">Curated Categories</h3>
+<p class="text-gray-500 dark:text-gray-400 font-light">Explore our thoughtfully chosen selection across lifestyle, apparel, and interior design.</p>
+</div>
+<a class="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b-2 border-primary pb-1" href="#">
+                    See All <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-8 h-auto md:h-[1000px]">
+<!-- Large Card -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl bg-gray-100">
+<img alt="Apparel Category" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Editorial fashion photography of high-end apparel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqg8gTG0hOpCsNqiU42dYbci_uOPWyM2vqPfLWcCQP5B-34dqLPqINYxfx3xs1xhAp9LNm3WPFyxEudrgznqjcwArKX3Gw70nXqAra25aiXRhgVcSsQT_0h8CeXIsqCr4XYtVFpmWdjIcWhOLKngYwnA16LKAnfdgfodcUlHRq99UQ5OfHpJdgAC_eiVfcKFVzLtO99bh-zLuD2zyfbs450tM2zxy4TLR_JEh36wV5FUwn1ZaUQ2wQvgOyrb5fp4EEISrfj81aa4Go"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-10 text-white">
+<span class="text-xs font-semibold tracking-widest uppercase mb-2 opacity-80">Collection</span>
+<h4 class="text-4xl font-bold mb-6">Apparel</h4>
+<button class="w-max px-6 py-2 border border-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Shop Now</button>
+</div>
+</div>
+<!-- Vertical Tall Card -->
+<div class="md:col-span-1 md:row-span-2 relative group overflow-hidden rounded-2xl bg-gray-100">
+<img alt="Home Decor Category" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist home interior with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATi-GiEqA1P7v5ekWm_JuLZDnAxCZaGyyZ_eFcjqet_zLvtUj0aF520aRJC_7MS6vcoVp5-JwyROvYhX4IhzOnUqCrz5Mz3E-Mbr-KfV3WjLm33oS-C1uBwvKfmCL_dPFMrehC04JAACT5xpe5-d2dnS2UBDvmsbZ0QEgzshfbxM2fVC75SSm8ctRWo0_NWGuqE-LERe0GH5yIEOgMUVMONuB7HW3ztV_65QJvCaXDJTH9krXNI1jvx7w6FI-2RmhXm93J4-wEqZTM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+<span class="text-xs font-semibold tracking-widest uppercase mb-2 opacity-80">Interior</span>
+<h4 class="text-2xl font-bold mb-4">Home</h4>
+<button class="w-max px-6 py-2 border border-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Explore</button>
+</div>
+</div>
+<!-- Two Small Square Cards Stacked -->
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-2xl bg-gray-100">
+<img alt="Accessories Category" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist wrist watch product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2LLGz2ncuKKWacGtSJvjA4hHcU9p_NAFQU2zKrUTDiobhR-cVpITfo3rcUpqaxTLY4Rujx-2Xs__zxUTNmsO9nsW1OYIEX_k5j0TulTHm_8zc3g9kzzj_DfNVjh9t5qLMNRmKP2pEBpQRExgUnoGvv6mjEyjbHhhKPV-zTLzlvd0HLt55V9pCQpbymxqaGcHxctm1tSzlQ9qsYz_764zfBdXXETFtkecQYtnz57uIfiw8t5otS3yqH-xXp44Dn_wZ3zXa8lM0Rdrd"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex flex-col justify-end p-6 text-white">
+<h4 class="text-xl font-bold">Accessories</h4>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-2xl bg-gray-100 flex items-center justify-center p-8 bg-primary text-white text-center">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-4xl">volunteer_activism</span>
+<h4 class="text-xl font-bold leading-tight">Join Our Community</h4>
+<p class="text-xs font-light opacity-80">Early access and exclusive stories delivered to your inbox.</p>
+<button class="text-xs font-bold uppercase tracking-widest border-b border-white mt-4">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Narrative Section -->
+<section class="bg-background-light dark:bg-background-dark/50 py-32 px-8 md:px-20">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="order-2 md:order-1 space-y-8">
+<h3 class="text-4xl md:text-5xl font-black leading-tight tracking-tight">Crafting essentials for a meaningful life.</h3>
+<div class="h-1 w-20 bg-primary"></div>
+<p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                        We believe that the objects we surround ourselves with define our clarity of mind. Our mission is to strip away the noise and focus on form, function, and responsible manufacturing.
+                    </p>
+<div class="grid grid-cols-2 gap-8 pt-4">
+<div>
+<p class="text-3xl font-bold text-primary">0%</p>
+<p class="text-xs uppercase tracking-widest text-gray-500 mt-2 font-bold">Plastic Packaging</p>
+</div>
+<div>
+<p class="text-3xl font-bold text-primary">100%</p>
+<p class="text-xs uppercase tracking-widest text-gray-500 mt-2 font-bold">Traceable Source</p>
+</div>
+</div>
+<button class="px-8 py-3 border border-[#111318] dark:border-white rounded-lg text-sm font-bold uppercase tracking-widest hover:bg-[#111318] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                        Our Story
+                    </button>
+</div>
+<div class="order-1 md:order-2 flex justify-center">
+<div class="relative w-full max-w-[450px]">
+<div class="aspect-[4/5] bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl z-10 relative">
+<img alt="Production Process" class="w-full h-full object-cover" data-alt="Minimalist workshop with clean tools and fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sAVuRtq72pw-3du9_CIjWTQh2_qyeVtZSS7RESGG7u_OQ8JL063l-GHPR_elUNvkBOFSi7cc32HD2aS7AI04RcTAxF6Ijdq1lrX9RACRS4cf9edpXhTtoNW1jnRBxN-ImxEtgz4DVFL8ZlEPTng0diPT1FiEmds1CuMwpx8aSLcZtCn-sV30H5nFb4mN2ML0AYkfLiJcuRgkbZVvz1JrIjDZ1vrLcRxd49FShj9QXve34dnWI2HkIn8F5Q_T3--TM1-zZh3hV8HX"/>
+</div>
+<div class="absolute -top-10 -right-10 size-40 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -left-10 size-60 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="max-w-[1440px] mx-auto px-8 md:px-20 py-24 border-t border-gray-100 dark:border-gray-800">
+<div class="bg-gray-900 dark:bg-black rounded-[2rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
+<div class="relative z-10 max-w-2xl mx-auto space-y-8">
+<h3 class="text-4xl md:text-5xl font-bold">Stay in the Loop</h3>
+<p class="text-gray-400 font-light text-lg">Subscribe to receive updates, access to exclusive deals, and more.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-1 bg-white/10 border border-white/20 rounded-xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder:text-gray-500" placeholder="Your email address" type="email"/>
+<button class="bg-white text-black px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary hover:text-white transition-all">
+                            Join Now
+                        </button>
+</form>
+</div>
+<!-- Abstract Background -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/20 skew-x-12 translate-x-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-1/4 h-1/2 bg-blue-400/10 -skew-x-12 -translate-x-1/2 blur-3xl"></div>
+</div>
+</section>
+</main>
+<!-- Simple Footer -->
+<footer class="max-w-[1440px] mx-auto px-8 md:px-20 py-16 border-t border-gray-100 dark:border-gray-800">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="space-y-6 max-w-xs">
+<div class="flex items-center gap-2">
+<div class="size-5 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold tracking-tighter uppercase">Minimal</span>
+</div>
+<p class="text-sm text-gray-500 font-light">Elegance in simplicity. Designing for a conscious future since 2024.</p>
+<div class="flex gap-4">
+<a class="size-8 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a class="size-8 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">language</span>
+</a>
+<a class="size-8 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<p class="text-xs font-bold uppercase tracking-widest text-primary">Shop</p>
+<ul class="space-y-2 text-sm text-gray-500 font-light">
+<li><a class="hover:text-primary" href="#">All Products</a></li>
+<li><a class="hover:text-primary" href="#">New Arrivals</a></li>
+<li><a class="hover:text-primary" href="#">Bestsellers</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="text-xs font-bold uppercase tracking-widest text-primary">Support</p>
+<ul class="space-y-2 text-sm text-gray-500 font-light">
+<li><a class="hover:text-primary" href="#">Shipping</a></li>
+<li><a class="hover:text-primary" href="#">Returns</a></li>
+<li><a class="hover:text-primary" href="#">FAQ</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="text-xs font-bold uppercase tracking-widest text-primary">Legal</p>
+<ul class="space-y-2 text-sm text-gray-500 font-light">
+<li><a class="hover:text-primary" href="#">Privacy</a></li>
+<li><a class="hover:text-primary" href="#">Terms</a></li>
+<li><a class="hover:text-primary" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800 flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">
+<p>© 2024 Minimal Studio Inc.</p>
+<p>Built for the Modern Individual</p>
+</div>
+</footer>
+<!-- Progress Indicator (Scroll) -->
+<div class="fixed top-0 left-0 h-1 bg-primary z-[100] transition-all duration-300" id="scrollProgress" style="width: 0%"></div>
+<script>
+        // Simple scroll progress logic visualization (simulated via standard JS if needed, but keeping within constraints)
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+        };
+    </script>
+</body></html>

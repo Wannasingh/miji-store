@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minimalist Product Detail - Desktop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-gray-100 antialiased font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#f0f2f4] dark:border-gray-800">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 flex h-16 items-center justify-between">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight">LUMINA</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Men</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Women</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Collections</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Objects</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-[#f0f2f4] dark:bg-gray-800 rounded-lg px-3 py-1.5 w-64">
+<span class="material-symbols-outlined text-gray-500 text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-gray-500" placeholder="Search curated items..." type="text"/>
+</div>
+<button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-cover bg-center ring-2 ring-white dark:ring-gray-800" data-alt="User profile avatar circle" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqjQjQuErxeunQkZc0catntsd6DqoUgiBIhxDg-U9B4Z2F8DugHOM0dgCuR_RZwl5F3qp58nuIRB2d1DL4EkEkaPzZJALsk_MxKc1Nac5Qy-YR1gcEyd1JaqnfSN3uAS__tj1weLfLqJ9as3DEdx8ZFUVl0pHlJP42NJi2YMtULzsciliyjvfnaXZtpFH8UteO0Wa4lmRWXqrAfDS_pf9WboXlBRpWjScExyj7bw30qCZZvFEmo5zAW7cJ81ebjr_CkiyGlvT2HJdL')"></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-10">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Apparel</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-gray-900 dark:text-gray-100">Premium Merino Polo</span>
+</nav>
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Left: Gallery Section -->
+<div class="flex-1 space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="aspect-[4/5] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden md:col-span-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="Main front view of charcoal polo shirt" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4FGw39OWITriYqfHjEfLGU0d-bfZRsha7Lf73IIv9FVvGyW1h7u5N-OiGdgvhfCEt64fnlhIh6tyTiknXed2uWP9kH77h3fcjOvspCi15GSMnSJwTrehmkUdZbtWOcWXXefkkdXoZxeWVSB67OO1lDtgOV1aQSWQFkMqRFFNJccQAPwBfDrsqSlXCi2UOOXoKSzIdf1Xed3XFzOBlEZdnUDpCVEOj-NUBZUrozVuRy1LS_6_4fPtL1lFG0ZSYYI154tsKYUqt7pmX')"></div>
+</div>
+<div class="aspect-[4/5] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Side profile view of product texture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcNIOzdYI0Pa3VsVPLtj63D2jXqiZVe5e4wNiCsOmXv1BGxvZLV5Y-nxtWZif26ZRti9TiPyihwRwoPKh0a0nxBJB-XEuLDySidUT9ucIYl0ZjvMnIsgFGCrKBd-JtK_q7QRcusbbQkN8NBeoTduvl4yE7ithQeg_7DQZyLP4IyWNIINQ5zW6iwwUDUlbLN3VzfF_sNDjiDgMEbIj-9LSIvvcAs877-mbVDRiQcfRacKhnznyGkoa7EDqdv95w7yV2enrKWJl1AuFp')"></div>
+</div>
+<div class="aspect-[4/5] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up of fabric and stitching details" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASaHXBryt6hX2o5kJ6EilNIRORkGAX2VtIFsgrvJdeZ4pSFDhy95T4CnTsvITpIOu4WmwKG3XaT8OF0z9g4mxuNjV_tOs2eEuTiBxQpks99U_iqcekMDTs2XvbCiwQoppBu7AaPIbeNGID7auoNvPTMRB3ihE9VEA6pqdcAigEEQitzM3Px7rOzCy54X-dM1dzXZTgSdFI43ugJRpfbjqWE2_52C_EXEEz6n7z8DkMjcoTl9_udSc-KsqDwDc37KdT4UvWkuaNWd6l')"></div>
+</div>
+<div class="aspect-[4/5] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Lifestyle shot of product being worn" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmA2lCa7bkzK3ZWupvmK_8x35clnnm2oX0OXtPrw0BdU59DQTm92pDGLNHJUHdsjFEIwdhA5kPVlZrefTMoeUWCjQ0mvcIGqAPjVRP3lP3KvWTNCzGBCUeiizLF0bfsQfP-DN2rCZ6s04iPp9P2jE6hY_hlrLJ33Kc9ZnHAyZ7qWcX2ll4-dJ_rlLmhkaaPxgLhN_9S4sbIRjERJ8BO1mQ0lS6YZFkkTN81bcYTmyK5a22rzuL7qEXxxJ5LIlASY50_KKeCf4A9exQ')"></div>
+</div>
+<div class="aspect-[4/5] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Back view of premium merino polo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG89l9bLgKOtWdK6X78wXBMfpuVPiu6IO5NaWW5PjyXEUy41SG4rTuE7BarUxlhEYKW4_HRPfQs1bMiqcjk-Kq8HRiavRC5j4YlXlTlufmnziBGsUuMHguQkHQMRuWaYfkZuk818yUOq59cuxR-uPaWVN_I2KEgM__XyfYpkO-a3ku64RElFpLF0fjl6n5tu4cZrgFiV1rn985SnlQTJ0fxIZ3jDw1uosIuQGa7sgk1L97WyfR-Tu_sq7T6n4geVCDsLZs_HVfwMnm')"></div>
+</div>
+</div>
+</div>
+<!-- Right: Product Information Panel (Fixed-ish on scroll) -->
+<div class="lg:w-[420px]">
+<div class="lg:sticky lg:top-24 space-y-10">
+<!-- Title & Price -->
+<div class="space-y-4">
+<div class="space-y-1">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Limited Edition</span>
+<h1 class="text-4xl font-black tracking-tight leading-none uppercase">Premium Merino Polo</h1>
+</div>
+<p class="text-2xl font-light">$125.00</p>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-sm">
+                            Crafted from exceptionally soft, 100% Australian Merino wool. Designed with a modern athletic silhouette and a concealed placket for a cleaner aesthetic.
+                        </p>
+</div>
+<!-- Color Selector -->
+<div class="space-y-4">
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">Color / Charcoal Grey</span>
+<div class="flex gap-4">
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="color" type="radio"/>
+<div class="w-8 h-8 rounded-full bg-[#333] border-2 border-transparent ring-1 ring-offset-2 ring-transparent peer-checked:ring-primary peer-checked:border-white dark:peer-checked:border-gray-900 transition-all"></div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="color" type="radio"/>
+<div class="w-8 h-8 rounded-full bg-[#f6f6f8] border border-gray-200 ring-1 ring-offset-2 ring-transparent peer-checked:ring-primary peer-checked:border-white dark:peer-checked:border-gray-900 transition-all"></div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="color" type="radio"/>
+<div class="w-8 h-8 rounded-full bg-[#2a3a5a] ring-1 ring-offset-2 ring-transparent peer-checked:ring-primary peer-checked:border-white dark:peer-checked:border-gray-900 transition-all"></div>
+</label>
+</div>
+</div>
+<!-- Size Selector -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">Select Size</span>
+<button class="text-xs font-medium underline text-gray-500 hover:text-primary">Size Guide</button>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<label class="cursor-pointer">
+<input class="sr-only peer" name="size" type="radio"/>
+<div class="h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded text-sm font-medium peer-checked:border-primary peer-checked:text-primary peer-checked:bg-primary/5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all uppercase">XS</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="size" type="radio"/>
+<div class="h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded text-sm font-medium peer-checked:border-primary peer-checked:text-primary peer-checked:bg-primary/5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all uppercase">S</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="size" type="radio"/>
+<div class="h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded text-sm font-medium peer-checked:border-primary peer-checked:text-primary peer-checked:bg-primary/5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all uppercase">M</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="size" type="radio"/>
+<div class="h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded text-sm font-medium peer-checked:border-primary peer-checked:text-primary peer-checked:bg-primary/5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all uppercase">L</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="size" type="radio"/>
+<div class="h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded text-sm font-medium peer-checked:border-primary peer-checked:text-primary peer-checked:bg-primary/5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all uppercase">XL</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer disabled:opacity-30" name="size" type="radio"/>
+<div class="h-12 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded text-sm font-medium opacity-40 cursor-not-allowed bg-gray-50 dark:bg-gray-900 uppercase">XXL</div>
+</label>
+</div>
+</div>
+<!-- CTA Buttons -->
+<div class="space-y-3 pt-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white h-14 rounded-lg font-bold text-base tracking-wide transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+                            Add to Bag
+                        </button>
+<button class="w-full bg-white dark:bg-transparent border border-[#dbdfe6] dark:border-gray-700 hover:border-gray-400 h-14 rounded-lg font-bold text-base tracking-wide transition-all">
+                            Save to Wishlist
+                        </button>
+</div>
+<!-- Details Accordion -->
+<div class="divide-y divide-gray-100 dark:divide-gray-800 border-t border-gray-100 dark:border-gray-800">
+<details class="group py-5" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="text-xs font-bold uppercase tracking-widest">Product Details</span>
+<span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed space-y-2">
+<p>• 100% Ultra-fine Merino Wool</p>
+<p>• Moisture-wicking and odor resistant</p>
+<p>• Hidden button placket design</p>
+<p>• Ethically sourced materials</p>
+</div>
+</details>
+<details class="group py-5">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="text-xs font-bold uppercase tracking-widest">Shipping &amp; Returns</span>
+<span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Free standard shipping on all orders over $150. Returns accepted within 30 days of purchase in original condition.
+                            </div>
+</details>
+</div>
+<!-- Trust Badges -->
+<div class="flex items-center gap-6 pt-4 grayscale opacity-60">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">verified</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Certified</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">eco</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Organic</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">public</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Eco-Friendly</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="mt-32 border-t border-gray-100 dark:border-gray-800 pt-16 pb-24">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-2xl font-black uppercase tracking-tight">Complete the Look</h2>
+<p class="text-gray-500 text-sm mt-1">Recommended essentials for your collection.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Related Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-lg bg-gray-100 dark:bg-gray-800 mb-4 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Chino trousers in sand color" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUylbpE-io_vwz3R405gzNaVb6NbAg1YmQ81OP81e1TAVQ2Ofk9V5vZ7BnWnH3h6fYMigHHC0cCukzuK3pxwW6flHAFmxgFmW7P59vJPZCa_UCGNKPE_7ku6qoiLQSCAaOAc7dCA5Ub4tn47_w3wWzJL_xZlxX5JnEwSv45E_YDvrBgNYmeuOs58USFd2dftg9Fnm0mkgSDH5kfVrohrSqsG7KxyDEQCp-3uwFFTLMsM6aLEGkvtD4ymvIBwyjVmy2A0H4vebwes38')"></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 shadow-lg">
+<span class="material-symbols-outlined text-gray-900">add</span>
+</button>
+</div>
+<div class="space-y-1">
+<h3 class="text-sm font-bold uppercase tracking-tight">Essential Chino</h3>
+<p class="text-sm text-gray-500">$85.00</p>
+</div>
+</div>
+<!-- Related Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-lg bg-gray-100 dark:bg-gray-800 mb-4 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist leather sneakers in white" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7OhuSeES2BlGFjh1gaBaJdClwJTuWsNMH2o5FaXNL2jBUqpp7PphKAcKRXEE9MTCaVomethGznlGJz5CIQY1bvfwoa90dWAYS84r4Z_7NyiwicKTii8hhFzS7WPAWT1XaYq87TG7DmF2CK3Iz2BL4JpsX4hnD7tmOaytoMeyYrzkeyKiPirxAz6JHxU-mdimrbxl_NlifqqfgMZgxK4-MxP3Q9lDtwMa9o0LJySwkixbMSTWEh3G-QsPywlKEerBUPXGids05cgXY')"></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 shadow-lg">
+<span class="material-symbols-outlined text-gray-900">add</span>
+</button>
+</div>
+<div class="space-y-1">
+<h3 class="text-sm font-bold uppercase tracking-tight">Studio Sneaker</h3>
+<p class="text-sm text-gray-500">$140.00</p>
+</div>
+</div>
+<!-- Related Item 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-lg bg-gray-100 dark:bg-gray-800 mb-4 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Black acetate sunglasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvcwfl8f5rqLZ8gEb7Hzxoa3ZEvQ1R1WKOoEIaDGQ6oNIRKsjPPKmv8FomB9ZjfJFSXenl2EUTn0DXLOzR0VDLzIBj_tlFmvHU-IdWPW5tHntQXwwTehbbvOnK5JqVry4i1hMCDzKANN_we2w7VJV5UZndKw8csR22Ry6xxPm7N37MBuuG4m8XXpiQy1DF64pwvY7ydX0FEUu4p92FhMRqkCNa8R7Whct6zGQ4eiyHuehHZcPYYr66JQ8IP8wAYIopTOa4svqKa4dq')"></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 shadow-lg">
+<span class="material-symbols-outlined text-gray-900">add</span>
+</button>
+</div>
+<div class="space-y-1">
+<h3 class="text-sm font-bold uppercase tracking-tight">Horizon Frames</h3>
+<p class="text-sm text-gray-500">$65.00</p>
+</div>
+</div>
+<!-- Related Item 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-lg bg-gray-100 dark:bg-gray-800 mb-4 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Silver metal wristwatch with mesh strap" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnmNkYq3uKvXKaeIPAPkBdbW4bXqzNTN2TJvEYPTU1ii391f3fywmgEgSdkW8d4IXPIIograU5MBuohhpLUfpSaEVsmTVS2ilYSzEZHsr32KKvD4tyWe2-aaOw2IqSyoYe4CBdZmulET_4iw2mr69xDJhC3FXU3csMYyKbZvijdHdqUT6GP1v0cDxQd1HTeRRInZ3En7ZhHheu6zKqU0YeLQOFm4q-0cUhTNO8dBFWJ0kBLIfmDVRFKcirNjlShnpaKrmu6Q6Wl1Fp')"></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 shadow-lg">
+<span class="material-symbols-outlined text-gray-900">add</span>
+</button>
+</div>
+<div class="space-y-1">
+<h3 class="text-sm font-bold uppercase tracking-tight">Epoch Watch</h3>
+<p class="text-sm text-gray-500">$210.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-[#f0f2f4] dark:border-gray-800 py-20">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-6 h-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-lg font-bold tracking-tight">LUMINA</span>
+</div>
+<p class="text-xs text-gray-500 leading-loose uppercase tracking-widest">Minimalist design meets exceptional quality. Curated for the modern lifestyle.</p>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Shop</h4>
+<ul class="space-y-4 text-sm text-gray-500 dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Bestsellers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Collections</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Support</h4>
+<ul class="space-y-4 text-sm text-gray-500 dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Order Status</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Delivery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Newsletter</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Join for early access to new launches and collections.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-transparent border-b border-gray-300 dark:border-gray-700 text-sm py-2 focus:ring-0 focus:border-primary border-t-0 border-l-0 border-r-0 placeholder:text-gray-400" placeholder="Email address" type="email"/>
+<button class="text-xs font-bold uppercase tracking-widest text-primary">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 mt-20 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between gap-6 text-[10px] text-gray-400 uppercase tracking-widest font-bold">
+<p>© 2024 Lumina Retail. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Cookie Settings</a>
+</div>
+</div>
+</footer>
+</body></html>

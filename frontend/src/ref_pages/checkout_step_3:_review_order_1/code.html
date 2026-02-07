@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout Step 3: Review Order</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Progress Bar -->
+<div class="flex items-center justify-center mb-12">
+<nav class="flex items-center space-x-4">
+<div class="flex items-center">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+<span class="ml-3 text-sm font-medium text-slate-500 dark:text-slate-400">Shipping</span>
+</div>
+<div class="w-12 h-px bg-slate-300 dark:bg-slate-700"></div>
+<div class="flex items-center">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+<span class="ml-3 text-sm font-medium text-slate-500 dark:text-slate-400">Payment</span>
+</div>
+<div class="w-12 h-px bg-slate-300 dark:bg-slate-700"></div>
+<div class="flex items-center">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-sm">3</span>
+<span class="ml-3 text-sm font-bold text-slate-900 dark:text-white">Review</span>
+</div>
+</nav>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Details -->
+<div class="lg:col-span-2 space-y-6">
+<header class="mb-8">
+<h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Review Your Order</h1>
+<p class="mt-2 text-slate-600 dark:text-slate-400">Please check your details before placing the final order.</p>
+</header>
+<!-- Shipping Address Section -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">local_shipping</span>
+                            Shipping Address
+                        </h2>
+<a class="text-sm font-semibold text-primary hover:underline flex items-center gap-1" href="#">
+                            Edit
+                            <span class="material-symbols-outlined text-xs">edit</span>
+</a>
+</div>
+<div class="text-slate-600 dark:text-slate-400">
+<p class="font-bold text-slate-900 dark:text-white">John Doe</p>
+<p>123 Minimalist Ave, Tech City</p>
+<p>San Francisco, CA 94103</p>
+<p>United States</p>
+<p class="mt-2 text-sm">+1 (555) 000-0000</p>
+</div>
+</div>
+<!-- Payment Method Section -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">credit_card</span>
+                            Payment Method
+                        </h2>
+<a class="text-sm font-semibold text-primary hover:underline flex items-center gap-1" href="#">
+                            Edit
+                            <span class="material-symbols-outlined text-xs">edit</span>
+</a>
+</div>
+<div class="flex items-center gap-4 text-slate-600 dark:text-slate-400">
+<div class="w-12 h-8 bg-slate-100 dark:bg-slate-700 rounded flex items-center justify-center border border-slate-200 dark:border-slate-600">
+<span class="text-[10px] font-bold tracking-tighter text-slate-400">VISA</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Visa ending in 4242</p>
+<p class="text-sm italic">Expires 12/26</p>
+</div>
+</div>
+</div>
+<!-- Order Items Section -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">shopping_bag</span>
+                            Order Items (3)
+                        </h2>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<!-- Item 1 -->
+<div class="p-6 flex gap-4">
+<img class="w-20 h-20 rounded-lg object-cover bg-slate-50" data-alt="Premium wireless headphones in matte black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmNULnchgY_CTSVkrwB51uSxuEKMEifyvNByfXoXpGBqANdMn3Ze5l8XSpFQkef-hUgoqcOoW023UXV3NYSZd0d-wpXhrLA6KBPSal3uOgjFei5iSLKbw1jfKt8ocqS35aeqz_rW7l8smjG41OViTwFp3Aen0qePq7N5_qqWMhizv-MFTcJBhq1qzKNpCTPqCp70K3BdmdO9s7z9OXBnNhc_zB5Us79xOGMbSOMa9YhaAFbvoyP0xVUqrHTYEswWu0HT6NHkkGPb24"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">AeroSonic Pro Wireless Headphones</h3>
+<p class="text-sm text-slate-500">Color: Midnight Black</p>
+</div>
+<p class="font-bold">$299.00</p>
+</div>
+<div class="mt-1">
+<span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">Qty: 1</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-6 flex gap-4">
+<img class="w-20 h-20 rounded-lg object-cover bg-slate-50" data-alt="Minimalist wrist watch with leather strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-M_9sxovoRHoaLIZlTfTIJ8bUY0lskiRmTz7XAehZvnAyZxua41BU_1meDDeJyOm2Gpkyekt49Dd4C1pXzd6xvun211xItmujyL9EkBQrxrN8p9xw3TWC-uByfHV_YhJfAFDn6pd1Gy1rcKblqsDl8U0BbSCQtm4E20FQiF8y_elrSaOi1KypIeMXwMiIcNrEszyELZGlhcSG70Pxi58bUsUEE8t0c7I8kUDhEqx1zServ6JwHtRjLXCXhwf43vWzFn-ZTQOmi62a"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Minimalist Chrono Watch</h3>
+<p class="text-sm text-slate-500">Size: 42mm</p>
+</div>
+<p class="font-bold">$185.00</p>
+</div>
+<div class="mt-1">
+<span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-1">
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 sticky top-8">
+<h2 class="text-xl font-bold mb-6">Order Summary</h2>
+<div class="space-y-4 mb-6">
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Subtotal</span>
+<span>$484.00</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Shipping</span>
+<span class="text-green-600 dark:text-green-400 font-medium">Free</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Tax</span>
+<span>$41.14</span>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 pt-4 flex justify-between items-baseline">
+<span class="text-lg font-bold text-slate-900 dark:text-white">Total</span>
+<span class="text-2xl font-black text-primary">$525.14</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group">
+                        Place Order
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<p>Secure SSL Encrypted Checkout</p>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-sm mt-3">
+<span class="material-symbols-outlined text-primary">published_with_changes</span>
+<p>30-Day Money Back Guarantee</p>
+</div>
+</div>
+<div class="mt-6 text-center">
+<p class="text-xs text-slate-400 dark:text-slate-500">
+                            By clicking "Place Order", you agree to our 
+                            <a class="underline" href="#">Terms of Service</a> and 
+                            <a class="underline" href="#">Privacy Policy</a>.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Mobile -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-4 z-50">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto">
+<div>
+<p class="text-xs text-slate-500">Total amount</p>
+<p class="text-xl font-bold text-primary">$525.14</p>
+</div>
+<button class="bg-primary text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-primary/20">
+                    Place Order
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer Space for Mobile Bottom Nav -->
+<div class="h-24 lg:hidden"></div>
+</body></html>

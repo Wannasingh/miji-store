@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout Step 2: Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .radio-dot {
+            --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%23135bec%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-gray-100 min-h-screen font-display">
+<!-- Navigation Header -->
+<nav class="w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark py-4 px-6 md:px-12 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">local_mall</span>
+<span class="text-xl font-black tracking-tighter">LUXE.</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<div class="flex items-center gap-2 text-sm font-medium text-gray-500">
+<span class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+<span>Shipping</span>
+</div>
+<div class="w-8 h-[1px] bg-gray-300"></div>
+<div class="flex items-center gap-2 text-sm font-semibold text-primary">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">2</span>
+<span>Payment</span>
+</div>
+<div class="w-8 h-[1px] bg-gray-300"></div>
+<div class="flex items-center gap-2 text-sm font-medium text-gray-400">
+<span class="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-400 flex items-center justify-center text-xs border border-gray-200 dark:border-gray-700">3</span>
+<span>Review</span>
+</div>
+</div>
+<div>
+<span class="material-symbols-outlined text-gray-500 cursor-pointer">close</span>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 md:px-12 py-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Payment Details -->
+<div class="lg:col-span-7 xl:col-span-8">
+<div class="mb-8">
+<h1 class="text-3xl font-black leading-tight tracking-tight mb-2">Payment Method</h1>
+<p class="text-gray-500 dark:text-gray-400">Please select your preferred payment method and enter details.</p>
+</div>
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-8">
+<a class="text-[#616f89] text-sm font-medium hover:text-primary transition-colors" href="#">Checkout</a>
+<span class="text-[#616f89] text-sm">/</span>
+<a class="text-[#616f89] text-sm font-medium hover:text-primary transition-colors" href="#">Shipping</a>
+<span class="text-[#616f89] text-sm">/</span>
+<span class="text-primary text-sm font-bold">Payment</span>
+</div>
+<div class="space-y-4">
+<!-- Payment Options -->
+<div class="flex flex-col gap-4">
+<!-- Credit Card Option (Selected State) -->
+<label class="group relative flex cursor-pointer flex-col rounded-xl border-2 border-primary bg-white dark:bg-gray-900 p-6 shadow-sm ring-0 transition-all">
+<input checked="" class="hidden" name="payment-type" type="radio"/>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">credit_card</span>
+<div>
+<p class="text-lg font-bold leading-none mb-1">Credit Card</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Visa, Mastercard, American Express</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="h-3 w-3 rounded-full bg-primary"></div>
+</div>
+</div>
+<!-- Expandable Form -->
+<div class="mt-6 border-t border-gray-100 dark:border-gray-800 pt-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="md:col-span-2">
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Cardholder Name</label>
+<input class="w-full h-12 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Card Number</label>
+<div class="relative">
+<input class="w-full h-12 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">lock</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Expiry Date</label>
+<input class="w-full h-12 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="MM / YY" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">CVV</label>
+<input class="w-full h-12 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="•••" type="password"/>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<input class="rounded border-gray-300 text-primary focus:ring-primary" id="save-card" type="checkbox"/>
+<label class="text-sm text-gray-600 dark:text-gray-400" for="save-card">Save this card for future purchases</label>
+</div>
+</div>
+</label>
+<!-- PayPal Option -->
+<label class="flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 transition-all hover:border-primary/50">
+<input class="hidden" name="payment-type" type="radio"/>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-gray-400 text-3xl">account_balance_wallet</span>
+<div>
+<p class="text-lg font-bold leading-none mb-1">PayPal</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Redirects to PayPal to complete purchase</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center"></div>
+</label>
+<!-- Bank Transfer -->
+<label class="flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 transition-all hover:border-primary/50">
+<input class="hidden" name="payment-type" type="radio"/>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-gray-400 text-3xl">account_balance</span>
+<div>
+<p class="text-lg font-bold leading-none mb-1">Bank Transfer</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Direct transfer via IBAN/SWIFT</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center"></div>
+</label>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
+<a class="flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                            Return to Shipping
+                        </a>
+<button class="w-full sm:w-auto px-10 h-14 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                            Continue to Review
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-5 xl:col-span-4">
+<div class="sticky top-10 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800">
+<h2 class="text-xl font-black">Order Summary</h2>
+</div>
+<div class="p-6 space-y-6">
+<!-- Items -->
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="h-16 w-16 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden flex-shrink-0">
+<img class="h-full w-full object-cover" data-alt="Red running sneaker on plain background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1MZFAqn7zp3DbHHX3JztQ-fz7yRPbK_eAYy9wnzcBIwegMryrul3gxhuhKsdvQaOt7KWBCwQGCUGkqK-p6EZXCvV4zV0bJFf7ry5oJRT6l4l-kYKHEi46O2GFDoxk0B83fEms0CeoWmSo6hd8wONh1bC8VkAH6us83HydaE3rX9EKws_oCUCYbzjsfvvGYF1yqt8rqH3OlcM-xs_AABfqCc5vy-3gct8po3sqIzEDvEjK8rp5_2lR-OFcol7mK80dEvNBCeIEcmMx"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Velocity Pro Runners</p>
+<p class="text-xs text-gray-500">Midnight Red • Size 42</p>
+<p class="text-sm font-semibold mt-1">$145.00</p>
+</div>
+<p class="text-sm text-gray-400">x1</p>
+</div>
+<div class="flex gap-4">
+<div class="h-16 w-16 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden flex-shrink-0">
+<img class="h-full w-full object-cover" data-alt="Classic minimal analog wrist watch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjaYSYS3FV7ibYqf8wy8lD9tr2VqymGD7vDsuyHoKK0Nhfytvpn-Kpo7wNWvZNooDC-WrWT05fbJU2XrPlcc9AVyzftibaJoZmh7SDrfdJ5QPtQEdy1BQjDz8pTiyVHu6hASOdr62nzoZcAZjUVlQraHgtwxyELzAUu4FVUFOl0wZaZWM8pONYKo1hkrCRyU9ppOYlkc4Xqe7uyXYI199l9itkywugl7IxH0pKyhVEw9RFi8RXCm1tYiDwjOGhAzUZ_2_Gl74IcGKl"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Luxe Essence Watch</p>
+<p class="text-xs text-gray-500">Silver Mesh • One Size</p>
+<p class="text-sm font-semibold mt-1">$320.00</p>
+</div>
+<p class="text-sm text-gray-400">x1</p>
+</div>
+</div>
+<!-- Coupon -->
+<div class="flex gap-2">
+<input class="flex-1 h-10 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark px-3 text-sm outline-none focus:border-primary" placeholder="Promo Code" type="text"/>
+<button class="px-4 h-10 border border-primary text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Apply</button>
+</div>
+<!-- Pricing Breakdown -->
+<div class="pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Subtotal</span>
+<span class="font-medium">$465.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Shipping</span>
+<span class="text-green-600 font-medium">Free</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Estimated Tax</span>
+<span class="font-medium">$12.45</span>
+</div>
+<div class="pt-4 flex justify-between">
+<span class="text-lg font-black tracking-tight">Total</span>
+<span class="text-2xl font-black text-primary">$477.45</span>
+</div>
+</div>
+<!-- Support Card -->
+<div class="bg-primary/5 rounded-xl p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div class="text-xs">
+<p class="font-bold text-primary mb-1">Safe &amp; Secure</p>
+<p class="text-gray-600 dark:text-gray-400">Your transaction is encrypted with 256-bit SSL security.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-20 border-t border-gray-200 dark:border-gray-800 py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400">local_mall</span>
+<span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Luxe E-Commerce Suite</span>
+</div>
+<div class="flex gap-8 text-sm text-gray-500">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Help Center</a>
+</div>
+<p class="text-sm text-gray-400">© 2024 Luxe. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

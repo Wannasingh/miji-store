@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minimalist Search Results</title>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+<div class="relative flex min-h-screen flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+<div class="flex items-center gap-10">
+<a class="flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">chair_alt</span>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white uppercase">Minima</span>
+</a>
+<!-- Desktop Search -->
+<div class="hidden md:flex items-center">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full rounded-lg border-none bg-slate-100 dark:bg-slate-800 py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 dark:text-white" placeholder="Search minimalist furniture..." type="text" value="Minimalist Chair"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="relative flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] text-white font-bold">2</span>
+</button>
+<button class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="mx-auto flex w-full max-w-7xl flex-1 px-6 py-8 lg:px-8">
+<!-- Sidebar Filter -->
+<aside class="hidden w-64 flex-shrink-0 lg:block">
+<div class="sticky top-24 space-y-8">
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Category</h3>
+<ul class="mt-4 space-y-3">
+<li>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Seating (12)</span>
+</label>
+</li>
+<li>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Office (6)</span>
+</label>
+</li>
+<li>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Lounge (6)</span>
+</label>
+</li>
+</ul>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-800"></div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Price Range</h3>
+<div class="mt-4 space-y-4">
+<div class="h-1.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full relative">
+<div class="absolute left-1/4 right-1/4 h-full bg-primary rounded-full"></div>
+<div class="absolute left-1/4 top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-primary bg-white shadow-sm cursor-pointer"></div>
+<div class="absolute right-1/4 top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-primary bg-white shadow-sm cursor-pointer"></div>
+</div>
+<div class="flex items-center justify-between text-xs font-medium text-slate-500">
+<span>$100</span>
+<span>$1,200</span>
+</div>
+</div>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-800"></div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Color</h3>
+<div class="mt-4 flex flex-wrap gap-2">
+<button class="h-8 w-8 rounded-full border border-slate-200 bg-white ring-2 ring-primary ring-offset-2 dark:ring-offset-background-dark" title="White"></button>
+<button class="h-8 w-8 rounded-full bg-slate-900" title="Black"></button>
+<button class="h-8 w-8 rounded-full bg-[#E5D3B3]" title="Oak"></button>
+<button class="h-8 w-8 rounded-full bg-slate-400" title="Grey"></button>
+</div>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-800"></div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Size</h3>
+<div class="mt-4 grid grid-cols-3 gap-2">
+<button class="rounded border border-slate-200 dark:border-slate-800 py-2 text-xs font-medium hover:border-primary transition-colors dark:text-slate-300">Small</button>
+<button class="rounded border border-primary bg-primary/10 py-2 text-xs font-medium text-primary transition-colors">Medium</button>
+<button class="rounded border border-slate-200 dark:border-slate-800 py-2 text-xs font-medium hover:border-primary transition-colors dark:text-slate-300">Large</button>
+</div>
+</div>
+<button class="w-full rounded-lg bg-slate-100 dark:bg-slate-800 py-2.5 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    Reset All Filters
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 lg:pl-12">
+<!-- Utility Bar -->
+<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+<div>
+<nav class="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400 uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100">Search Results</span>
+</nav>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Search results for "Minimalist Chair"</h1>
+<p class="mt-2 text-sm text-slate-500">Showing 24 high-quality results</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative inline-block text-left">
+<button class="group flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 transition-colors">
+                            Sort By: Relevance
+                            <span class="material-symbols-outlined text-slate-400 transition-transform group-hover:translate-y-0.5">expand_more</span>
+</button>
+</div>
+<button class="lg:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white">
+<span class="material-symbols-outlined text-slate-600">tune</span>
+</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+<!-- Product Card 1 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+<img alt="Nordic Minimalist Chair" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist wooden chair with clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC31EUQfRLYSYom9dxebCotsmbRyyWHbvMkmhiUIBUIBj52C_X-YwgnD-gpipOJ-ZXSVgqcvE_xK2j_Rv7eIt4wyFPQbZwDSJsfj7bu_D0t0pRh_zoQe6hdm4ApjTWbsfn-FwxibFwKO0ayQfqvDi2A2UspfP8n4JwQ7xGME8_bUYR--WvVu9zJ7D4VhFuwZzoDmOOREwR0y5DC7FwrBWZzWagI0yvoxuBsNgVaYdztrWRNqL_vaM7fBKwzl3EB2fX_tIycD29anSQ7"/>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+<button class="w-full rounded-lg bg-white/95 py-2.5 text-sm font-bold text-slate-900 shadow-xl backdrop-blur transition-colors hover:bg-primary hover:text-white">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Nordic Oak Lounge</h3>
+<span class="text-sm font-bold text-primary">$320.00</span>
+</div>
+<p class="text-xs text-slate-500">Premium Ashwood • Natural Finish</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+<img alt="Sculptural Black Chair" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Sleek modern black chair aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuiAR_0SkdtIlVyEl5zVQN-p0ZUXmgeUjDlJ0yi19dgBDlFLWjfismP900IveOotAzCWw0ltz4PwejCFEXy2gCiCcmFxQJvXFpkZ7q4Eqsc-g7WOCSMbLfS1yztutIaDkgUPjAr4EL9adDtVFKd4WdqaAH0cuj6MR4B9jfefsJlF_-29qDEWb_GQ5cDsdFPvl5DaeaoS8KllznRwOxSfblCX-ugF8cOg2YmzahuJB9SxswIFpzBieSg7nrUvYJuC0pGgWrlp0BBAqe"/>
+<div class="absolute top-4 left-4">
+<span class="rounded-full bg-primary px-3 py-1 text-[10px] font-bold text-white uppercase tracking-widest">New</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+<button class="w-full rounded-lg bg-white/95 py-2.5 text-sm font-bold text-slate-900 shadow-xl backdrop-blur transition-colors hover:bg-primary hover:text-white">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Mono Studio Chair</h3>
+<span class="text-sm font-bold text-primary">$285.00</span>
+</div>
+<p class="text-xs text-slate-500">Matte Finish • Ergonomic</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+<img alt="Padded Minimal Chair" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Light grey minimalist upholstered dining chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_p_hEb1UA6q_Nqk8BWxfFI1J8RkdT-vENpbVnf4Pfo_RMs7rHkVl_zahOgcx8PCpuGxra1oD3xIoHRh3efrqTlIk4G0e0SJkg3r_HLIH-vhdItZDM8_YCfCoZnbyHs3MmZu6H7fQpMn6FVbsyFsurUy934R5tXlJlJl6pu0ZaplHS5ZYDnJI41t5tIcf8TpYx7Zbvrn3JgOv5z2mLmJxERBOePRelKKtkBeoJMdO655WwEoo8OWW-4ITz8PN2JVBEvOrPhjJhn_IJ"/>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+<button class="w-full rounded-lg bg-white/95 py-2.5 text-sm font-bold text-slate-900 shadow-xl backdrop-blur transition-colors hover:bg-primary hover:text-white">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Soft Lines Dining</h3>
+<span class="text-sm font-bold text-primary">$190.00</span>
+</div>
+<p class="text-xs text-slate-500">Recycled Polyester • Grey</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+<img alt="Slim Profile Chair" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist metal frame chair with wood seat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv79TyNFjOWtZ3ljixawodYo3MZXYNVlAtwYUl7CsStODYYcGH8ri7L0NaKbrLKmW2KUJVciar2GMmZVxZZNxV9viOZel0n7JnkzbvqcNhgXXCy41QuJSs7T72yfr53YlNdC2XfI1XsJF_Re1M1UctG0-xg6NpPIReAk85icolsnGEItVO5qUCFNXdD8GlfHwy0tcoa7PlR-QE2PxUFckUxOF_VXaqw-N1uMd6S6gRHkPZmngpg9M2ffca3_uPxGrtQ8h28hpUJkgx"/>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+<button class="w-full rounded-lg bg-white/95 py-2.5 text-sm font-bold text-slate-900 shadow-xl backdrop-blur transition-colors hover:bg-primary hover:text-white">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Skeleton Frame Desk</h3>
+<span class="text-sm font-bold text-primary">$410.00</span>
+</div>
+<p class="text-xs text-slate-500">Powder Coated Steel • Oak</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+<img alt="Classic Modern Chair" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Eames style minimalist accent chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRogNIb9GtsbeGakwJGWnu0FByHCYVkzBMQUczqoz3U4UYi09cvbdt4GMu9-7JS8th6ZDN-hd81BhieXmCV-TDpvAKe64-7Ia8d3uXxL7-EjZSfPQRAuZzk5ZSQ-gb-EpSbuiIKghqaghX97kAjV-EEAZBvvefj5VMbEuNmadNAxo89AiHs0RXdl25XnwTiTefY40fulcWYJQ0v9pbjB3LAyKkoL7wXpk5F9OtcWLQFXZaIjgsfqA1_ii32DOEVH8sPlnYU0yjTlzq"/>
+<div class="absolute top-4 left-4">
+<span class="rounded-full bg-slate-900 px-3 py-1 text-[10px] font-bold text-white uppercase tracking-widest">Sale -20%</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+<button class="w-full rounded-lg bg-white/95 py-2.5 text-sm font-bold text-slate-900 shadow-xl backdrop-blur transition-colors hover:bg-primary hover:text-white">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Legacy Lounge</h3>
+<div class="flex gap-2">
+<span class="text-sm font-bold text-primary">$440.00</span>
+<span class="text-sm text-slate-400 line-through">$550.00</span>
+</div>
+</div>
+<p class="text-xs text-slate-500">Walnut • Genuine Leather</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+<img alt="Compact Office Chair" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Simple modern white office chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC75fMjt7hhB1WKNVpZduKGRFVQFfkabFguD_llHulTyGWRJgorLuFPgKEgBuGXw5v4ll6cv6iuuTlbzag3v0GBnWh_2CGm3sw3hv1Bnimvz3Q0acdIH-8AT0J045wgpXSOR7yEoMtLDxMqTGrCWAPDqjM7YGEJiQU9XVnsBS5lzbrLzQp8dQ353MjxXsyjyxt7iUncvDVOpUss-tE9HBg4MfgYtMzgL92XUYdPFu0unWrlnWm4FYQrtmAB-60diw3o41eRVShAQyUW"/>
+<div class="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+<button class="w-full rounded-lg bg-white/95 py-2.5 text-sm font-bold text-slate-900 shadow-xl backdrop-blur transition-colors hover:bg-primary hover:text-white">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Aero Task Chair</h3>
+<span class="text-sm font-bold text-primary">$215.00</span>
+</div>
+<p class="text-xs text-slate-500">Polypropylene • White</p>
+</div>
+</div>
+</div>
+<!-- Load More / Pagination -->
+<div class="mt-20 flex flex-col items-center gap-6">
+<div class="flex gap-2">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-primary bg-primary/5 text-primary">1</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">2</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">3</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400">...</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<button class="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-primary transition-colors">
+                    Load More Results
+                    <span class="material-symbols-outlined text-primary group-hover:translate-y-0.5 transition-transform">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800 py-12 bg-white dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">chair_alt</span>
+<span class="font-bold tracking-tight text-slate-900 dark:text-white uppercase">Minima</span>
+</div>
+<nav class="flex gap-8 text-sm font-medium text-slate-500">
+<a class="hover:text-primary transition-colors" href="#">About</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
+</div>
+</div>
+<div class="mt-8 text-center text-[10px] text-slate-400 uppercase tracking-widest">
+            © 2024 Minima Design Studio. All rights reserved.
+        </div>
+</footer>
+</div>
+</body></html>

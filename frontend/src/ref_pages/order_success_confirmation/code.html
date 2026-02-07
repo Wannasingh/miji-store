@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Success - ShopMinimal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation -->
+<header class="flex items-center justify-between border-b border-solid border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary text-white rounded-lg">
+<span class="material-symbols-outlined !text-xl">shopping_bag</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-tight">ShopMinimal</h2>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-gray-600 dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors" href="#">Shop</a>
+<a class="text-gray-600 dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-gray-600 dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<div class="size-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden border border-gray-100 dark:border-gray-800">
+<span class="material-symbols-outlined text-gray-500 text-xl">person</span>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-12 md:py-20">
+<div class="w-full max-w-[640px] flex flex-col items-center text-center">
+<!-- Success Visual -->
+<div class="mb-8 relative">
+<div class="size-24 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary !text-5xl">check_circle</span>
+</div>
+</div>
+<!-- Headline & Subtext -->
+<h1 class="text-gray-900 dark:text-white text-3xl md:text-4xl font-bold tracking-tight mb-3">Thank you for your order!</h1>
+<p class="text-gray-500 dark:text-gray-400 text-base md:text-lg font-normal mb-8">
+                        Your order <span class="text-gray-900 dark:text-white font-semibold">#ORD-77291</span> has been placed. <br class="hidden md:block"/>
+                        We've sent a confirmation email to your registered address.
+                    </p>
+<!-- Info Card -->
+<div class="w-full bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-6 md:p-8 mb-10 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Delivery Status -->
+<div class="flex flex-col items-center md:items-start">
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+<span class="text-xs font-bold uppercase tracking-wider">Estimated Delivery</span>
+</div>
+<p class="text-gray-900 dark:text-white text-xl font-bold">Oct 24 - Oct 26, 2023</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Standard Shipping</p>
+</div>
+<!-- Destination -->
+<div class="flex flex-col items-center md:items-start md:border-l md:border-gray-100 dark:md:border-gray-800 md:pl-8">
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-wider">Shipping To</span>
+</div>
+<p class="text-gray-900 dark:text-white text-base font-semibold">Alex Thompson</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">123 Design Avenue, Creative Suite 404</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-gray-50 dark:border-gray-800">
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract minimalist map showing shipping route" data-location="San Francisco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4WMcxb7AZIKijJk17Mnpxl3NHRDzFxril4c2H9mE5hdvUlSxqXcThI6QkxJneFDav_00QpipuNbmsGXrwAqaKjuOgrDeVEVMs8dVK_RFyxx8eJEw8ffIoEP1yJRZjk3j0FsizOXjpT3fgczquZxT2lAveyr3F6Zqce7FAZjj8eyegb_D8RznpW2Z7SvoXxjMOfnxMo1IGNm6f9HLwpWl_M1BEhdT8DhTeMXXlolqXKksY-Afew5JdIbr12yhyHbUm5NL_09OZ4AXi');">
+</div>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-primary/20 active:scale-95">
+<span class="material-symbols-outlined mr-2">package_2</span>
+                            Track Order
+                        </button>
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-gray-700 active:scale-95">
+                            Continue Shopping
+                        </button>
+</div>
+<!-- Support Footer -->
+<div class="mt-12 text-sm text-gray-400 dark:text-gray-500">
+                        Need help with your order? 
+                        <a class="text-primary hover:underline font-medium" href="#">Contact Support</a>
+</div>
+</div>
+</main>
+<!-- Bottom Spacer for visual balance -->
+<footer class="py-10 text-center text-xs text-gray-400 dark:text-gray-600">
+                © 2023 ShopMinimal Inc. All rights reserved.
+            </footer>
+</div>
+</div>
+</body></html>
