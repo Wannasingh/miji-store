@@ -35,23 +35,31 @@
             class="space-y-4 text-sm font-light text-gray-500 dark:text-gray-400"
           >
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Women's Essentials</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/search?category=Womens-dresses"
+                >Women's Essentials</router-link
               >
             </li>
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Men's Basics</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/search?category=Mens-shirts"
+                >Men's Basics</router-link
               >
             </li>
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Accessories</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/search?category=Womens-bags"
+                >Accessories</router-link
               >
             </li>
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Summer 24</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/search"
+                >Summer 24</router-link
               >
             </li>
           </ul>
@@ -64,22 +72,32 @@
             class="space-y-4 text-sm font-light text-gray-500 dark:text-gray-400"
           >
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Shipping Policy</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/help"
+                >Shipping Policy</router-link
               >
             </li>
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Returns & Exchanges</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/help"
+                >Returns & Exchanges</router-link
               >
             </li>
             <li>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Contact Us</a
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/contact"
+                >Contact Us</router-link
               >
             </li>
             <li>
-              <a class="hover:text-primary transition-colors" href="#">FAQ</a>
+              <router-link
+                class="hover:text-primary transition-colors"
+                to="/help"
+                >FAQ</router-link
+              >
             </li>
           </ul>
         </div>
@@ -112,9 +130,15 @@
         <div
           class="flex gap-8 text-[10px] text-gray-400 uppercase tracking-widest font-bold"
         >
-          <a class="hover:text-primary transition-colors" href="#">Privacy</a>
-          <a class="hover:text-primary transition-colors" href="#">Terms</a>
-          <a class="hover:text-primary transition-colors" href="#">Cookies</a>
+          <router-link class="hover:text-primary transition-colors" to="/help"
+            >Privacy</router-link
+          >
+          <router-link class="hover:text-primary transition-colors" to="/help"
+            >Terms</router-link
+          >
+          <router-link class="hover:text-primary transition-colors" to="/help"
+            >Cookies</router-link
+          >
         </div>
       </div>
     </div>

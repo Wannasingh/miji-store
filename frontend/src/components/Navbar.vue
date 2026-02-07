@@ -48,10 +48,12 @@
           <router-link to="/search" class="hover:text-primary transition-colors"
             >Shop</router-link
           >
-          <a class="hover:text-primary transition-colors" href="#"
-            >Collections</a
+          <router-link class="hover:text-primary transition-colors" to="/search"
+            >Collections</router-link
           >
-          <a class="hover:text-primary transition-colors" href="#">Journal</a>
+          <router-link class="hover:text-primary transition-colors" to="/search"
+            >Journal</router-link
+          >
         </div>
         <div class="h-6 w-px bg-gray-200 dark:bg-gray-700"></div>
         <div class="flex items-center gap-5">
