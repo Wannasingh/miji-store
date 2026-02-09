@@ -80,9 +80,10 @@
         <div>
           <button
             type="submit"
-            class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all uppercase tracking-widest"
+            :disabled="loading"
+            class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all uppercase tracking-widest disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Create Account
+            {{ loading ? "กำลังสมัคร..." : "Create Account" }}
           </button>
         </div>
 
@@ -104,16 +105,46 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { setToken } from "../utils/auth.js";
+import { useToast } from "../composables/useToast.js";
+import { apiUrl } from "../api/client.js";
 
 const router = useRouter();
+const toast = useToast();
 const name = ref("");
 const email = ref("");
 const password = ref("");
+const loading = ref(false);
 
-const handleSignup = () => {
-  // Mock signup
-  console.log("Signup attempt:", name.value, email.value);
-  alert("Account created successfully (Mock)");
-  router.push("/login");
-};
+async function handleSignup() {
+  loading.value = true;
+  try {
+    const res = await fetch(apiUrl("/api/auth/signup"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      toast.show(data.error || "สมัครสมาชิกไม่สำเร็จ", "error");
+      return;
+    }
+    if (data.token) {
+      setToken(data.token);
+      toast.show("สมัครสำเร็จ ยินดีต้อนรับ", "success");
+      router.push("/");
+    } else {
+      toast.show(data.message || "สมัครสำเร็จ กรุณาล็อกอิน", "success");
+      router.push("/login");
+    }
+  } catch (e) {
+    toast.show("เกิดข้อผิดพลาด กรุณาลองใหม่", "error");
+  } finally {
+    loading.value = false;
+  }
+}
 </script>

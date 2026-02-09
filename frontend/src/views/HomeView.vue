@@ -145,6 +145,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { apiUrl } from "../api/client.js";
 
 const router = useRouter();
 const hero = ref(null);
@@ -155,8 +156,8 @@ const email = ref("");
 const fetchHomeData = async () => {
   try {
     const [heroRes, productsRes] = await Promise.all([
-      fetch("http://127.0.0.1:5050/api/hero-banners"),
-      fetch("http://127.0.0.1:5050/api/products"),
+      fetch(apiUrl("/api/hero-banners")),
+      fetch(apiUrl("/api/products")),
     ]);
 
     const heroData = await heroRes.json();

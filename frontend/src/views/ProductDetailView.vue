@@ -199,6 +199,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
+import { apiUrl } from "../api/client.js";
 
 const route = useRoute();
 const product = ref(null);
@@ -214,7 +215,7 @@ const fetchProduct = async () => {
   loading.value = true;
   try {
     const res = await fetch(
-      `http://127.0.0.1:5050/api/products/${route.params.id}`,
+      apiUrl(`/api/products/${route.params.id}`),
     );
     const data = await res.json();
     product.value = data.product;

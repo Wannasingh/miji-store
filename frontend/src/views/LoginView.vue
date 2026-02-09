@@ -69,9 +69,10 @@
         <div>
           <button
             type="submit"
-            class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all uppercase tracking-widest"
+            :disabled="loading"
+            class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all uppercase tracking-widest disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Sign in
+            {{ loading ? "กำลังเข้าสู่ระบบ..." : "Sign in" }}
           </button>
         </div>
 
@@ -92,16 +93,38 @@
 
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
+import { setToken } from "../utils/auth.js";
+import { useToast } from "../composables/useToast.js";
+import { apiUrl } from "../api/client.js";
 
 const router = useRouter();
+const route = useRoute();
+const toast = useToast();
 const email = ref("");
 const password = ref("");
+const loading = ref(false);
 
-const handleLogin = () => {
-  // Mock login
-  console.log("Login attempt:", email.value);
-  alert("Logged in successfully (Mock)");
-  router.push("/");
-};
+async function handleLogin() {
+  loading.value = true;
+  try {
+    const res = await fetch(apiUrl("/api/auth/login"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.value, password: password.value }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      toast.show(data.error || "ล็อกอินไม่สำเร็จ", "error");
+      return;
+    }
+    setToken(data.token);
+    toast.show("ล็อกอินสำเร็จ", "success");
+    router.push(route.query.redirect || "/");
+  } catch (e) {
+    toast.show("เกิดข้อผิดพลาด กรุณาลองใหม่", "error");
+  } finally {
+    loading.value = false;
+  }
+}
 </script>

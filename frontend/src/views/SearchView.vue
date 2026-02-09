@@ -158,6 +158,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { apiUrl } from "../api/client.js";
 
 const router = useRouter();
 const route = useRoute();
@@ -175,8 +176,8 @@ const fetchData = async () => {
   loading.value = true;
   try {
     const [prodRes, catRes] = await Promise.all([
-      fetch("http://127.0.0.1:5050/api/products"),
-      fetch("http://127.0.0.1:5050/api/categories"),
+      fetch(apiUrl("/api/products")),
+      fetch(apiUrl("/api/categories")),
     ]);
     products.value = await prodRes.json();
     categories.value = await catRes.json();

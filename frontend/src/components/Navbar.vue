@@ -63,7 +63,21 @@
           >
             <span class="material-symbols-outlined">favorite</span>
           </router-link>
+          <template v-if="isLoggedIn">
+            <button
+              type="button"
+              @click="handleLogout"
+              class="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded-full group flex items-center gap-1"
+            >
+              <span class="material-symbols-outlined">logout</span>
+              <span
+                class="text-[10px] font-bold uppercase tracking-tight hidden md:block"
+                >Logout</span
+              >
+            </button>
+          </template>
           <router-link
+            v-else
             to="/login"
             class="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded-full group flex items-center gap-1"
           >
@@ -92,12 +106,25 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { isAuthenticated, clearToken } from "../utils/auth.js";
 
 const router = useRouter();
+const route = useRoute();
 const searchQuery = ref("");
 const cartCount = ref(2); // Mocked for now
+
+// ขึ้นกับ route ด้วย เพื่อให้หลัง login ไปหน้าอื่นแล้ว Navbar อัปเดต
+const isLoggedIn = computed(() => {
+  route.path;
+  return isAuthenticated();
+});
+
+function handleLogout() {
+  clearToken();
+  router.push("/");
+}
 
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
