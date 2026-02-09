@@ -65,6 +65,12 @@ const router = createRouter({
       meta: { title: "Wishlist " + TITLE_SUFFIX, requiresAuth: true },
     },
     {
+      path: "/profile",
+      name: "profile",
+      component: () => import("../views/ProfileView.vue"),
+      meta: { title: "โปรไฟล์ " + TITLE_SUFFIX, requiresAuth: true },
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "not-found",
       component: () => import("../views/NotFoundView.vue"),

@@ -60,33 +60,84 @@
           <router-link
             to="/wishlist"
             class="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+            title="Wishlist"
           >
             <span class="material-symbols-outlined">favorite</span>
           </router-link>
           <template v-if="isLoggedIn">
-            <button
-              type="button"
-              @click="handleLogout"
+            <div class="relative" ref="profileWrapRef">
+              <button
+                type="button"
+                @click="profileMenuOpen = !profileMenuOpen"
+                class="flex items-center justify-center w-9 h-9 rounded-full bg-[#f0f2f4] dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary transition-colors border-2 border-transparent focus:border-primary/50 outline-none"
+                :class="{ 'ring-2 ring-primary/30': profileMenuOpen }"
+                title="เมนูบัญชี"
+                aria-haspopup="true"
+                :aria-expanded="profileMenuOpen"
+              >
+                <span class="material-symbols-outlined text-xl">person</span>
+              </button>
+              <Transition
+                enter-active-class="transition ease-out duration-150"
+                enter-from-class="opacity-0 -translate-y-1"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-100"
+                leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 -translate-y-1"
+              >
+                <div
+                  v-show="profileMenuOpen"
+                  class="absolute right-0 top-full mt-2 w-52 py-1 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg z-[100]"
+                  role="menu"
+                >
+                  <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">บัญชีของฉัน</p>
+                  </div>
+                  <router-link
+                    to="/profile"
+                    @click="profileMenuOpen = false"
+                    class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    role="menuitem"
+                  >
+                    <span class="material-symbols-outlined text-lg">person</span>
+                    โปรไฟล์
+                  </router-link>
+                  <button
+                    type="button"
+                    @click="handleLogout"
+                    class="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-700 dark:text-gray-200 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                    role="menuitem"
+                  >
+                    <span class="material-symbols-outlined text-lg">logout</span>
+                    ออกจากระบบ
+                  </button>
+                </div>
+              </Transition>
+            </div>
+          </template>
+          <template v-else>
+            <router-link
+              to="/login"
               class="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded-full group flex items-center gap-1"
+              title="เข้าสู่ระบบ"
             >
-              <span class="material-symbols-outlined">logout</span>
+              <span class="material-symbols-outlined">person</span>
               <span
                 class="text-[10px] font-bold uppercase tracking-tight hidden md:block"
-                >Logout</span
+                >Login</span
               >
-            </button>
-          </template>
-          <router-link
-            v-else
-            to="/login"
-            class="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded-full group flex items-center gap-1"
-          >
-            <span class="material-symbols-outlined">person</span>
-            <span
-              class="text-[10px] font-bold uppercase tracking-tight hidden md:block"
-              >Login</span
+            </router-link>
+            <router-link
+              to="/signup"
+              class="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 px-2 py-1 rounded-full group flex items-center gap-1 text-sm font-medium"
+              title="สมัครสมาชิก"
             >
-          </router-link>
+              <span
+                class="text-[10px] font-bold uppercase tracking-tight hidden md:block"
+                >Sign up</span
+              >
+            </router-link>
+          </template>
           <router-link
             to="/checkout"
             class="relative text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
@@ -106,23 +157,38 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import { isAuthenticated, clearToken } from "../utils/auth.js";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useRouter } from "vue-router";
+import { authState, clearToken, refreshAuthState } from "../utils/auth.js";
+import { useToast } from "../composables/useToast.js";
 
 const router = useRouter();
-const route = useRoute();
 const searchQuery = ref("");
 const cartCount = ref(2); // Mocked for now
+const profileMenuOpen = ref(false);
+const profileWrapRef = ref(null);
 
-// ขึ้นกับ route ด้วย เพื่อให้หลัง login ไปหน้าอื่นแล้ว Navbar อัปเดต
-const isLoggedIn = computed(() => {
-  route.path;
-  return isAuthenticated();
+const isLoggedIn = computed(() => authState.value);
+
+function onClickOutside(e) {
+  if (profileWrapRef.value && !profileWrapRef.value.contains(e.target)) {
+    profileMenuOpen.value = false;
+  }
+}
+
+onMounted(() => {
+  refreshAuthState();
+  document.addEventListener("click", onClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", onClickOutside);
 });
 
 function handleLogout() {
+  profileMenuOpen.value = false;
   clearToken();
+  useToast().show("ออกจากระบบแล้ว", "success");
   router.push("/");
 }
 
