@@ -1,4 +1,8 @@
+"""
+ร้านแบบ MUJI — เสื้อผ้า, เฟอร์นิเจอร์, ของใช้ในบ้าน. ไม่ขายมือถือ/อิเล็กทรอนิกส์.
+"""
 import os
+import re
 import httpx
 import asyncio
 from dotenv import load_dotenv
@@ -14,19 +18,26 @@ supabase: Client = create_client(SUBABASE_URL, SUPABASE_KEY)
 
 async def fetch_dummy_json_products():
     print("Fetching from DummyJSON (Minimal Categories)...")
-    # Specific categories that fit the "Miji/MUJI" minimalist aesthetic
     minimal_categories = [
-        "mens-shirts", "mens-shoes", 
-        "womens-dresses", "womens-shoes", "womens-bags",
-        "home-decoration", "furniture"
+        "mens-shirts", "mens-shoes", "mens-watches",
+        "womens-dresses", "womens-shoes", "womens-bags", "womens-jewellery",
+        "tops", "sunglasses", "home-decoration", "furniture", "lighting",
     ]
-    
+    _exclude = re.compile(
+        r"phone|smartphone|iphone|android|laptop|tablet\s*(pc|computer)?|electronic|"
+        r"oppo|samsung\s*(galaxy|phone)|xiaomi|macbook|keyboard|wireless\s*mouse|monitor\s*\d", re.I
+    )
     products = []
     async with httpx.AsyncClient() as client:
-        # Fetch up to 200 to have more to filter from
         response = await client.get("https://dummyjson.com/products?limit=194")
         all_prods = response.json()["products"]
-        products = [p for p in all_prods if p["category"] in minimal_categories]
+        for p in all_prods:
+            if p["category"] not in minimal_categories:
+                continue
+            text = (p.get("title") or "") + " " + (p.get("description") or "")
+            if _exclude.search(text):
+                continue
+            products.append(p)
     return products
 
 async def fetch_platzi_products():
