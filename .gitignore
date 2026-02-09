@@ -11,10 +11,43 @@ target/
 *.iml
 *.iws
 
-# Sensitive Data
+# Sensitive Data / Credentials (prevent leaks)
 .env
 .env.*
-! .env.example
+!.env.example
+*.env.local
+*.env.*.local
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*credentials*
+*secrets*
+*secret*.json
+*secret*.yaml
+*secret*.yml
+*.credentials
+config/secrets*
+**/secrets.*
+**/credentials.*
+
+# Logs (can contain tokens, headers, PII)
+*.log
+logs/
+backend_*.log
+
+# Cloud / API keys
+.aws/
+*.credentials
+service-account*.json
+gcloud/
+.firebaserc
+.firebase/
+*.token
+*.access_token
 
 # OS
 .DS_Store
